@@ -2,6 +2,22 @@
 
 Torrent zerbitzariko media fitxategiak automatikoki irakurri eta sailkatu ostean dagokien torrent fitxategia sortu eta partekatzen duen kode zatia da honako hau.
 
+## Konfigurazio fitxategia
+
+Sortu script karpetaren barruan conf.yml izeneko fitxategi bat. Ondorengo egitura izan behar du:
+
+paths:
+  FILM_PATH_TO_SHARE: ""
+  FILM_PATH_MEDIA_STORE: ""
+  SERIES_PATH_TO_SHARE: ""
+  SERIES_PATH_MEDIA_STORE: ""
+
+transmission:
+  TORRENT_STORE_PATH: ""
+  TRANSMISSION_AUTH: ""
+  COMMENT: ""
+
+
 ## Torrent izenen egitura
 
 Automatizazioak funtziona dezan, beharrezkoa da fitxategiek egitura hau errespetatzea.
