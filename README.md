@@ -5,7 +5,7 @@ Torrent zerbitzariko media fitxategiak automatikoki irakurri eta sailkatu ostean
 ## Konfigurazio fitxategia
 
 Sortu script karpetaren barruan conf.yml izeneko fitxategi bat. Ondorengo egitura izan behar du:
-
+```
 paths:
   FILM_PATH_TO_SHARE: ""
   FILM_PATH_MEDIA_STORE: ""
@@ -16,7 +16,7 @@ transmission:
   TORRENT_STORE_PATH: ""
   TRANSMISSION_AUTH: ""
   COMMENT: ""
-
+```
 
 ## Torrent izenen egitura
 
