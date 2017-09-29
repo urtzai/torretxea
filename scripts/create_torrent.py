@@ -1,22 +1,25 @@
+import yaml
 import delegator
 import os
 import glob
 import errno
-import pdb
 import time
 
-# FILM PATHS
-FILM_PATH_TO_SHARE = ""
-FILM_PATH_MEDIA_STORE = ""
 
-# SERIE PATHS
-SERIES_PATH_TO_SHARE = ""
-SERIES_PATH_MEDIA_STORE = ""
+try:
+    with open("conf.yml", 'r') as ymlfile:
+        cfg = yaml.load(ymlfile)
 
-# CONFIGURATION
-TORRENT_STORE_PATH = ""
-TRANSMISSION_AUTH = ""
-COMMENT = "TORRETXEAK eskainitako euskarazko media"
+    FILM_PATH_TO_SHARE = cfg.get('paths').get('FILM_PATH_TO_SHARE')
+    FILM_PATH_MEDIA_STORE = cfg.get('paths').get('FILM_PATH_MEDIA_STORE')
+    SERIES_PATH_TO_SHARE = cfg.get('paths').get('SERIES_PATH_TO_SHARE')
+    SERIES_PATH_MEDIA_STORE = cfg.get('paths').get('SERIES_PATH_MEDIA_STORE')
+    TORRENT_STORE_PATH = cfg.get('transmission').get('TORRENT_STORE_PATH')
+    TRANSMISSION_AUTH = cfg.get('transmission').get('TRANSMISSION_AUTH')
+    COMMENT = cfg.get('transmission').get('COMMENT')
+
+except IOError as exc:
+    print "Can't load config file"
 
 
 def create_media_store_folders(media_store_path):
@@ -24,7 +27,7 @@ def create_media_store_folders(media_store_path):
     print command.out
 
 
-def move_file_to_media_store(f, media_store_path)
+def move_file_to_media_store(f, media_store_path):
     command = delegator.run('mv {0} {1}'.format(f.name, media_store_path), block=True)
     print command.out
 
@@ -38,7 +41,7 @@ def create_torrent_file(file_name, file_name_ext, media_store_path):
     return torrent_file_path
 
 
-def share_torrent_file(torrent_file_path)
+def share_torrent_file(torrent_file_path):
     command = delegator.run('transmission-remote --auth={0} --add {1}'.format(TRANSMISSION_AUTH, torrent_file_path), block=True)
     print command.out
 
