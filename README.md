@@ -2,6 +2,12 @@
 
 Torrent zerbitzariko media fitxategiak automatikoki irakurri eta sailkatu ostean dagokien torrent fitxategia sortu eta partekatzen duen kode zatia da honako hau.
 
+## Dependentziak
+
+* Python 2.7
+* Transmission-daemon
+* Delegator
+
 ## Konfigurazio fitxategia
 
 Sortu script karpetaren barruan conf.yml izeneko fitxategi bat. Ondorengo egitura izan behar du:
@@ -34,8 +40,6 @@ One_Piece-S01E11-(1999)-[720p][JP_EU][Sub_EN][Torretxea].avi
 
 `Telesailaren_izena`-`Denboraldi_eta_atal_zenbakia`-(`Urtea`)-[`Bereizmena`][`Audio_hizkuntza`][Sub_`Azpitituluen_hizkuntza`][Torretxea]
 
-## DEPENDENTZIAK
+## Exekutatzeko
 
-* Python 2.7
-* Transmission-daemon
-* Delegator
+```python scripts/create_torrent.py```
